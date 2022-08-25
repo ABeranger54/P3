@@ -1,0 +1,11 @@
+{
+  "name": "p3",
+  "version": "1.0.0",
+  "description": "Projet 3",
+  "main": "index.js",
+  "scripts": {
+    "sass": "sass --watch ./css/style.scss:./css/style.css"
+  },
+  "author": "Alexandre Beranger",
+  "license": "ISC"
+}
