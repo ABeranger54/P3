@@ -4,7 +4,7 @@
   "description": "Projet 3",
   "main": "index.js",
   "scripts": {
-    "sass": "sass --watch ./css/style.scss:./css/style.css"
+    "sass": "sass --watch ./css/style.scss:./css/style.css ./css/tablet.scss:./css/tablet.css ./css/desktop.scss:./css/desktop.css"
   },
   "author": "Alexandre Beranger",
   "license": "ISC"

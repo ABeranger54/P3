@@ -59,10 +59,12 @@ body .main-button:hover {
 @keyframes loaderAnimation {
   80% {
     opacity: 100%;
+    z-index: 1;
   }
   100% {
     opacity: 0%;
     display: none;
+    z-index: -1;
   }
 }
 @keyframes spin {

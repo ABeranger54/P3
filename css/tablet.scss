@@ -1,0 +1,9 @@
+#restaurants #restaurants-card-container{
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.restaurants-card{
+    width: 45%;
+}
