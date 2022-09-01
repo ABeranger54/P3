@@ -20,11 +20,56 @@ body .shrikhand {
 body .heart {
   transition: color 0.6s;
   color: gray;
+  cursor: pointer;
 }
 body .heart:hover {
   color: #9356DC;
 }
+body .main-button {
+  padding: 15px 20px;
+  border: none;
+  background-color: #FF79DA;
+  border-radius: 30px;
+  color: white;
+  box-shadow: inset -20px -20px 40px 5px #9356DC;
+}
+body .main-button:hover {
+  cursor: pointer;
+}
 
+#loader {
+  background-color: #e6e6e6;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  text-align: center;
+  animation: 2s ease-out 0s 1 loaderAnimation;
+  animation-fill-mode: forwards;
+  position: fixed;
+}
+#loader p {
+  margin-top: 10%;
+  font-size: 50px;
+  margin-bottom: 60px;
+}
+#loader i {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes loaderAnimation {
+  80% {
+    opacity: 100%;
+  }
+  100% {
+    opacity: 0%;
+    display: none;
+  }
+}
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
 header {
   display: flex;
   flex-direction: row;
@@ -64,14 +109,6 @@ header #back-button > i {
 #presentation p {
   margin: 25px 0;
   font-size: 18px;
-}
-#presentation button {
-  padding: 15px 20px;
-  border: none;
-  background-color: #FF79DA;
-  border-radius: 30px;
-  color: white;
-  box-shadow: inset -20px -20px 40px 5px #9356DC;
 }
 
 #fonctionnement {
@@ -135,8 +172,8 @@ header #back-button > i {
   width: 100%;
   height: 200px;
   object-fit: cover;
-  margin-bottom: 15px;
   border-radius: 20px 20px 0 0;
+  margin-bottom: 15px;
 }
 #restaurants .restaurants-card a .restaurants-card-content {
   display: flex;
@@ -163,8 +200,71 @@ footer {
 footer nav ul {
   line-height: 25px;
 }
-footer nav ul li i {
+footer nav ul li a {
+  color: white;
+}
+footer nav ul li a i {
   margin-right: 10px;
+}
+
+@keyframes restaurantPageAnimation {
+  0% {
+    transform: translateY(30px);
+    opacity: 0%;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 100%;
+  }
+}
+#restaurant-page-nav .plate-card:nth-child(1n) {
+  animation: 1s ease-out 0.2s 1 restaurantPageAnimation;
+  animation-fill-mode: forwards;
+}
+
+#restaurant-page-nav .plate-card:nth-child(2n) {
+  animation: 1s ease-out 0.4s 1 restaurantPageAnimation;
+  animation-fill-mode: forwards;
+}
+
+#restaurant-page-nav .plate-card:nth-child(3n) {
+  animation: 1s ease-out 0.6s 1 restaurantPageAnimation;
+  animation-fill-mode: forwards;
+}
+
+#restaurant-page-nav .plate-card:nth-child(4n) {
+  animation: 1s ease-out 0.8s 1 restaurantPageAnimation;
+  animation-fill-mode: forwards;
+}
+
+#restaurant-page-nav .plate-card:nth-child(5n) {
+  animation: 1s ease-out 1s 1 restaurantPageAnimation;
+  animation-fill-mode: forwards;
+}
+
+#restaurant-page-nav .plate-card:nth-child(6n) {
+  animation: 1s ease-out 1.2s 1 restaurantPageAnimation;
+  animation-fill-mode: forwards;
+}
+
+#restaurant-page-nav .plate-card:nth-child(7n) {
+  animation: 1s ease-out 1.4s 1 restaurantPageAnimation;
+  animation-fill-mode: forwards;
+}
+
+#restaurant-page-nav .plate-card:nth-child(8n) {
+  animation: 1s ease-out 1.6s 1 restaurantPageAnimation;
+  animation-fill-mode: forwards;
+}
+
+#restaurant-page-nav .plate-card:nth-child(9n) {
+  animation: 1s ease-out 1.8s 1 restaurantPageAnimation;
+  animation-fill-mode: forwards;
+}
+
+#restaurant-page-nav .plate-card:nth-child(10n) {
+  animation: 1s ease-out 2s 1 restaurantPageAnimation;
+  animation-fill-mode: forwards;
 }
 
 #restaurant-page img {
@@ -180,6 +280,10 @@ footer nav ul li i {
   padding: 30px 20px;
   border-radius: 40px 40px 0 0;
   margin-top: 340px;
+  text-align: center;
+}
+#restaurant-page button {
+  width: 50%;
 }
 
 #restaurant-page-top {
@@ -194,11 +298,20 @@ footer nav ul li i {
 
 #restaurant-page-nav {
   margin-top: 30px;
+  text-align: left;
 }
-#restaurant-page-nav h3 {
+#restaurant-page-nav ul {
+  margin-bottom: 50px;
+}
+#restaurant-page-nav ul h3 {
   padding-left: 5px;
+  text-decoration: underline;
+  text-decoration-color: #99E2D0;
+  text-decoration-thickness: 3px;
+  text-underline-offset: 8px;
 }
-#restaurant-page-nav li {
+#restaurant-page-nav ul .plate-card {
+  opacity: 0%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -208,43 +321,45 @@ footer nav ul li i {
   margin-top: 20px;
   border-radius: 20px;
   padding-left: 15px;
+  overflow: hidden;
+  cursor: pointer;
 }
-#restaurant-page-nav li .plate-description {
-  width: 70%;
-}
-#restaurant-page-nav li .plate-description h4 {
+#restaurant-page-nav ul .plate-card h4 {
   font-size: 20px;
   margin: 5px 0;
   padding-top: 10px;
 }
-#restaurant-page-nav li .plate-description p {
-  padding-bottom: 15px;
+#restaurant-page-nav ul .plate-card p {
+  color: #333333;
 }
-#restaurant-page-nav li p {
-  color: #2e2e2e;
+#restaurant-page-nav ul .plate-card .plate-card-description {
+  overflow: hidden;
+  white-space: nowrap;
+  width: 100%;
 }
-#restaurant-page-nav li > p {
-  padding-top: 43px;
+#restaurant-page-nav ul .plate-card .plate-card-price {
+  padding: 42px 30px 0 10px;
   font-weight: bold;
 }
-#restaurant-page-nav li .restaurant-page-nav-select {
+#restaurant-page-nav ul .plate-card .restaurant-page-nav-select {
   background-color: #99E2D0;
   width: 0;
-  height: 46px;
-  transition: 0.3s;
-  border-radius: 0 20px 20px 0;
-  text-align: center;
-  padding-top: 30px;
+  height: 76px;
+  transition: 0.5s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
 }
-#restaurant-page-nav li .restaurant-page-nav-select div {
+#restaurant-page-nav ul .plate-card .restaurant-page-nav-select div {
   color: white;
-  display: none;
 }
-#restaurant-page-nav li:hover .restaurant-page-nav-select {
-  width: 80px;
+#restaurant-page-nav ul .plate-card:hover .restaurant-page-nav-select {
+  width: 100px;
 }
-#restaurant-page-nav li:hover .restaurant-page-nav-select div {
-  display: inline;
+#restaurant-page-nav ul .plate-card:hover .restaurant-page-nav-select div {
+  rotate: 360deg;
+  transition: 0.5s;
 }
 
 /*# sourceMappingURL=style.css.map */

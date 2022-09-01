@@ -45,10 +45,63 @@ body{
     .heart{
       transition: color 0.6s;
       color: gray;
+      cursor: pointer;
+
       &:hover{
         color: $color-first;
       }
     }
+
+    .main-button{
+      padding: 15px 20px;
+      border: none;
+      background-color: $color-second;
+      border-radius: 30px;
+      color: white;
+      box-shadow: inset -20px -20px 40px 5px $color-first;
+      
+      &:hover{
+        cursor: pointer;
+      }
+    }
+}
+
+#loader{
+  @include darker(10%);
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  text-align: center;
+  animation: 2s ease-out 0s 1 loaderAnimation;
+  animation-fill-mode: forwards;
+  position: fixed;
+
+  p{
+    margin-top: 10%;
+    font-size: 50px;
+    margin-bottom: 60px;
+  }
+
+  i{
+    animation: spin 1s linear infinite;
+  }
+}
+
+@keyframes loaderAnimation{
+  80%{
+    opacity: 100%;
+  }
+
+  100%{
+    opacity: 0%;
+    display: none;
+  }
+}
+
+@keyframes spin { 
+  100% { 
+      transform:rotate(360deg); 
+  } 
 }
 
 header{
@@ -87,15 +140,6 @@ header{
     p{
       margin: 25px 0;
       font-size: 18px;
-    }
-
-    button{
-      padding: 15px 20px;
-      border: none;
-      background-color: $color-second;
-      border-radius: 30px;
-      color: white;
-      box-shadow: inset -20px -20px 40px 5px $color-first;
     }
 }
 
@@ -165,8 +209,8 @@ header{
           width: 100%;
           height: 200px;
           object-fit: cover;
-          margin-bottom: 15px;
           border-radius: 20px 20px 0 0;
+          margin-bottom: 15px;
         }
 
         .restaurants-card-content{
@@ -197,14 +241,36 @@ footer{
     nav ul{
       line-height: 25px;
 
-      li i{
-        margin-right: 10px;
+      li a{
+        color: white;
+
+        i{
+          margin-right: 10px;
+        }
       }
     }
 }
 
+@keyframes restaurantPageAnimation{
+  0%{
+    transform: translateY(30px);
+    opacity: 0%;
+  }
+
+  100%{
+    transform: translateY(0);
+    opacity: 100%;
+  }
+}
+
+@for $i from 1 through 10 {
+  #restaurant-page-nav .plate-card:nth-child(#{$i}n) {
+    animation: 1s ease-out #{$i * 0.2}s 1 restaurantPageAnimation;
+    animation-fill-mode: forwards;
+  }
+}
+
 #restaurant-page{
-  
     img{
       width: 100%;
       position: absolute;
@@ -219,6 +285,11 @@ footer{
       padding: 30px 20px;
       border-radius: 40px 40px 0 0;
       margin-top: 340px;
+      text-align: center;
+    }
+
+    button{
+      width: 50%;
     }
 }
 
@@ -232,63 +303,74 @@ footer{
 
 #restaurant-page-nav{
     margin-top: 30px;
+    text-align: left;
 
-    h3{
-      padding-left: 5px;
-    }
+    ul{
+      margin-bottom: 50px;
 
-    li{
-      @include flex(row, space-between);
-      @include shadow;
-      background-color: $color-background;
-      margin-top: 20px;
-      border-radius: 20px;
-      padding-left: 15px;
-
-      .plate-description{
-        width: 70%;
+      h3{
+        padding-left: 5px;
+        text-decoration: underline;
+        text-decoration-color: $color-third;
+        text-decoration-thickness: 3px;
+        text-underline-offset: 8px;
+      }
+  
+      .plate-card{
+        opacity: 0%;
+        @include flex(row, space-between);
+        @include shadow;
+        background-color: $color-background;
+        margin-top: 20px;
+        border-radius: 20px;
+        padding-left: 15px;
+        overflow: hidden;
+        cursor: pointer;
 
         h4{
           font-size: 20px;
           margin: 5px 0;
           padding-top: 10px;
         }
-
+  
         p{
-          padding-bottom: 15px;
+          color: lighten(black, 20%);
         }
-      }
 
-      p{
-        color: lighten(black, 18%);
-      }
-
-      >p{
-        padding-top: 43px;
-        font-weight: bold;
-      }
-
-      .restaurant-page-nav-select{
-        background-color: $color-third;
-        width: 0;
-        height: 46px;
-        transition: 0.3s;
-        border-radius: 0 20px 20px 0;
-        text-align: center;
-        padding-top: 30px;
-
-        div{
-          color: white;
-          display: none;
+        .plate-card-description{
+          overflow: hidden;
+          white-space: nowrap;
+          width: 100%;
         }
-      }
+  
+        .plate-card-price{
+          padding: 42px 30px 0 10px;
+          font-weight: bold;
+        }
 
-      &:hover .restaurant-page-nav-select{
-        width: 80px;
-      }
-
-      &:hover .restaurant-page-nav-select div{
-        display: inline;
+        .restaurant-page-nav-select{
+          background-color: $color-third;
+          width: 0;
+          height: 76px;
+          transition: 0.5s;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          overflow: hidden;
+  
+          div{
+            color: white;
+          }
+        }
+  
+        &:hover .restaurant-page-nav-select{
+          width: 100px;
+        }
+  
+        &:hover .restaurant-page-nav-select div{
+          rotate: 360deg;
+          transition: 0.5s;
+        }
       }
     }
 }
