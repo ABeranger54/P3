@@ -4,6 +4,13 @@
   justify-content: space-around;
 }
 
+#restaurant-page-top {
+  justify-content: center;
+}
+#restaurant-page-top i {
+  margin-left: 50px;
+}
+
 .restaurants-card {
   width: 45%;
 }

@@ -31,10 +31,13 @@ body .main-button {
   background-color: #FF79DA;
   border-radius: 30px;
   color: white;
-  box-shadow: inset -20px -20px 40px 5px #9356DC;
+  box-shadow: inset -20px -20px 40px 5px #9356DC, 0px 10px 15px 0 rgba(0, 0, 0, 0.25);
+  transition: 0.3s;
 }
 body .main-button:hover {
   cursor: pointer;
+  box-shadow: inset -20px -20px 40px 5px #9356DC, 0px 10px 15px 0 rgba(0, 0, 0, 0.4);
+  background-color: #ff93e1;
 }
 
 #loader {
@@ -302,15 +305,15 @@ footer nav ul li a i {
   margin-top: 30px;
   text-align: left;
 }
-#restaurant-page-nav ul {
-  margin-bottom: 50px;
-}
-#restaurant-page-nav ul h3 {
+#restaurant-page-nav h3 {
   padding-left: 5px;
   text-decoration: underline;
   text-decoration-color: #99E2D0;
   text-decoration-thickness: 3px;
   text-underline-offset: 8px;
+}
+#restaurant-page-nav ul {
+  margin-bottom: 50px;
 }
 #restaurant-page-nav ul .plate-card {
   opacity: 0%;
@@ -326,11 +329,6 @@ footer nav ul li a i {
   overflow: hidden;
   cursor: pointer;
 }
-#restaurant-page-nav ul .plate-card h4 {
-  font-size: 20px;
-  margin: 5px 0;
-  padding-top: 10px;
-}
 #restaurant-page-nav ul .plate-card p {
   color: #333333;
 }
@@ -339,18 +337,28 @@ footer nav ul li a i {
   white-space: nowrap;
   width: 100%;
 }
+#restaurant-page-nav ul .plate-card .plate-card-description h4 {
+  font-size: 20px;
+  margin: 5px 0;
+  padding-top: 10px;
+}
+#restaurant-page-nav ul .plate-card .plate-card-description p, #restaurant-page-nav ul .plate-card .plate-card-description h4 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 #restaurant-page-nav ul .plate-card .plate-card-price {
   padding: 42px 30px 0 10px;
   font-weight: bold;
 }
 #restaurant-page-nav ul .plate-card .restaurant-page-nav-select {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
   background-color: #99E2D0;
   width: 0;
   height: 76px;
   transition: 0.5s;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   overflow: hidden;
 }
 #restaurant-page-nav ul .plate-card .restaurant-page-nav-select div {
