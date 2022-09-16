@@ -377,7 +377,7 @@ footer{
         }
   
         &:hover .restaurant-page-nav-select div{
-          rotate: 360deg;
+          transform: rotate(360deg);
           transition: 0.5s;
         }
       }
